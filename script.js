@@ -16,19 +16,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let resultado;
         switch (true) {
-            case (imc <= 18.5):
+            case (imc < 18.50):
                 resultado = 'Abaixo do peso';
                 break;
-            case (imc>=18.6&&imc <= 24.9):
+            case (imc>=18.5&&imc < 25.0):
                 resultado = 'Peso normal';
                 break;
-            case (imc>=25.0&&imc <= 29.9):
+            case (imc>=25.0&&imc < 30.0):
                 resultado = 'Sobrepeso';
                 break;
-            case (imc>=30.0&&imc <= 34.9):
+            case (imc>=30.0&&imc < 35.0):
                 resultado = 'Obesidade grau I';
                 break;
-            case (imc>=35.0&&imc <= 39.9):
+            case (imc>=35.0&&imc <= 40):
                 resultado = 'Obesidade grau II';
                 break;
             default:
