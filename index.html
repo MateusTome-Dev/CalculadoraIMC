@@ -4,21 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="img/imcFavicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <link rel="shortcut icon" href="img/imcfavicon.png" type="image/x-icon">
     <title>IMC</title>
 </head>
 <body>
-    <main>
-        <div class="container">
-        <h1 class="title">Calculadora do IMC</h1>
-        <h1 class="subTitle">Digite sua altura: <input type="number" name="" id=""></h1>
-        <h1 class="subTitle1">Digite seu peso: <input type="number" name="" id=""></h1>
-        <section class="imc">
-            <p class="result"></p>
-        </section>
+    <header>
+        <div class="block">
+
         </div>
-        <section class="block"><button>Calcular</button></section>
+    </header>
+    <main>
+        <section class="container">
+            <h1>Calculadora Imc</h1>
+            <section class="contentForm">
+            <form action="submit" class="form" id="form">
+                <label for="height">Altura:</label>
+                <input type="number" id="Height" name="height" step="any">
+                <label for="Weight">Peso:</label>
+                <input type="number" id="Weight" name="Weight" step="any">
+                <div class="contentBtn">
+                    <button type="submit" id="btnCalculo">Calcular</button>
+                </div>
+            </form>
+            </section>
+            <section class="contentResult">
+                <table>
+                    <tr class="titleResult">
+                        <th>Peso</th>
+                        <th>Altura</th>
+                        <th>Imc</th>
+                        <th>Resultado</th>
+                    </tr>
+                    <tr class="result">
+                        <td id="resultWeight"></td>
+                        <td id="resultHeight"></td>
+                        <td id="resultImc"></td>
+                        <td id="resultWeightBetween"></td>
+                    </tr>
+                </table>
+            </section>
+        </section>
     </main>
+    <footer class="blockBottom">
+
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
+<!-- <main>
+    <div class="container">
+    <h1 class="title">Calculadora do IMC</h1>
+    <h1 class="subTitle">Digite sua altura: <input type="number" name="" id=""></h1>
+    <h1 class="subTitle1">Digite seu peso: <input type="number" name="" id=""></h1>
+    <section class="imc">
+        <p class="result"></p>
+    </section>
+    </div>
+    <section class="block"><button>Calcular</button></section>
+</main> -->

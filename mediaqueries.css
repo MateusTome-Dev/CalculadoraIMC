@@ -1,0 +1,42 @@
+@media (max-width: 900px) {
+    main{
+        display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+    }
+}
+@media (max-width: 510px) {
+    main{
+        font-size: 28px;
+    }
+    .form{
+        width: 300px;
+    }
+    .form input{
+        font-size: 18px;
+        padding: 5px;
+    }
+    .contentBtn button{
+        font-size: 18px;
+        padding: 5px 10px 5px 10px;
+    }
+    .contentResult table{
+        width: 280px;
+        font-size: 17px;
+    }
+
+    .contentResult table tr{
+        display: flex;
+        justify-content: space-between;
+    }
+    .contentResult table tr th,.contentResult table tr td{
+        margin: auto;
+        width: 90px;
+        padding: 2px;
+    }
+    .result{
+        font-size: 16px;
+    }
+}

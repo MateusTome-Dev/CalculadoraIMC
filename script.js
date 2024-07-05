@@ -1,46 +1,48 @@
-var valorAltura=document.querySelector("main div.container h1.subTitle input");
-var valorPeso=document.querySelector("main div.container h1.subTitle1 input");
-var imc=document.querySelector("main div.container section.imc");
-const calcular=document.querySelector("main section.block button");
-calcular.addEventListener("click",()=>{
-    imc.innerHTML=""
-if(Number(valorAltura.valor)<0||Number(valorAltura.value)>3||Number(valorPeso.value)<0){
-    alert("Digite uma altura e um peso valido");
-} else {
-    var alturaAoQuadrado = Math.pow(Number(valorAltura.value), 2);
-    var calc = valorPeso.value / alturaAoQuadrado;
-    var resultado=document.createElement("p");
-    resultado.innerHTML ="Seu Imc é:"+ calc.toFixed(2);
-    imc.appendChild(resultado);
-}
-if(calc<16){
-    var resultado1=document.createElement("p");
-    resultado1.innerHTML ="Você está em magreza grave";
-    imc.appendChild(resultado1);
-}
-else if(calc>=16&&calc<=16.9){
-    var resultado1=document.createElement("p");
-    resultado1.innerHTML ="Você está em magreza moderada";
-    imc.appendChild(resultado1);
-}
-else if(calc>=17&&calc<=18.5){
-    var resultado1=document.createElement("p");
-    resultado1.innerHTML ="Você está em magreza leve";
-    imc.appendChild(resultado1);
-}
-else if(calc>=18.6&&calc<= 24.9){
-    var resultado1=document.createElement("p");
-    resultado1.innerHTML ="Você está em peso ideal";
-    imc.appendChild(resultado1);
-}
-else if(calc>=25&&calc<= 29.9){
-    var resultado1=document.createElement("p");
-    resultado1.innerHTML ="Você está em sobrepeso";
-    imc.appendChild(resultado1);
-}
-else if(calc>=30){
-    var resultado1=document.createElement("p");
-    resultado1.innerHTML ="Você está em obesidade";
-    imc.appendChild(resultado1);
-}
-})
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.form');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const height = document.getElementById('Height').value.trim().replace(',', '.');
+        const weight = document.getElementById('Weight').value.trim().replace(',', '.');
+
+        if (isNaN(height) || isNaN(weight) || height <= 0 || height>=3 ||weight <= 0) {
+            alert('Por favor, insira valores válidos para altura e peso.');
+            return;
+        }
+
+        const imc = weight / (height * height);
+
+        let resultado;
+        switch (true) {
+            case (imc <= 18.5):
+                resultado = 'Abaixo do peso';
+                break;
+            case (imc>=18.6&&imc <= 24.9):
+                resultado = 'Peso normal';
+                break;
+            case (imc>=25.0&&imc <= 29.9):
+                resultado = 'Sobrepeso';
+                break;
+            case (imc>=30.0&&imc <= 34.9):
+                resultado = 'Obesidade grau I';
+                break;
+            case (imc>=35.0&&imc <= 39.9):
+                resultado = 'Obesidade grau II';
+                break;
+            default:
+                resultado = 'Obesidade grau III';
+        }
+
+        var pesoElement = document.getElementById('resultWeight');
+        var alturaElement = document.getElementById('resultHeight');
+        var imcElement = document.getElementById('resultImc');
+        var resultadoElement = document.getElementById('resultWeightBetween');
+
+        pesoElement.textContent = (weight+"Kg"); 
+        alturaElement.textContent = height; 
+        imcElement.textContent = imc.toFixed(2);
+        resultadoElement.textContent = resultado;
+    });
+});
